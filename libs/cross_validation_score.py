@@ -1,10 +1,11 @@
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
+import statistics as stat
+
+from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
-import statistics as stat
 
 
 def separate_target(data, colName):

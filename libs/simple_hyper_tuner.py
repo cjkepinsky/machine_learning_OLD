@@ -1,24 +1,21 @@
 # https://medium.com/all-things-ai/in-depth-parameter-tuning-for-gradient-boosting-3363992e9bae
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from libs.simple_processing import get_model_name, categorize, fillna_val_cols, categorize_train_valid_test
-from libs.simpleplotter import simple_roc
-from sklearn.model_selection import GridSearchCV
 import sys
-from sklearn.model_selection import train_test_split
-from sklearn.gaussian_process import GaussianProcessClassifier
+
+from libs.simple_processing import get_model_name, categorize, categorize_train_valid_test
+from libs.simpleplotter import simple_roc
+from sklearn import svm
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.linear_model import SGDClassifier
-from xgboost import XGBClassifier
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.linear_model import LogisticRegression, LinearRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn import svm
-import numpy as np # linear algebra
-from libs.simpleplotter import simple_roc
+from xgboost import XGBClassifier
+import matplotlib.pyplot as plt
+
 
 # LinearRegression (LR)
 # RandomForest (RF)
@@ -83,9 +80,7 @@ def quick_gridsearchcv_overview(X, y, cv=None, train_size=None, random_state=Non
         {
             'splitter': {'train_size': train_size, 'random_state': random_state},
             'cv': cv,
-            'model': LogisticRegression(max_iter=200
-                                        , multi_class="ovr"
-                                        ),
+            'model': LogisticRegression(max_iter=200, multi_class="ovr"),
             'hyperparams': {
                 # 'tol': np.arange(0, 0.005, 0.001)
                 # , 'C': [1, 0.1, 0.4, 0.7, 1.2]
@@ -170,10 +165,25 @@ def gridsearchcv_tuner(X, y, params, verbose=1, do_categorize=True, X_test=None)
     best_model = {}
     best_f1 = 0
 
+    print("X shape: ", X.shape)
+
     for p in params:
         for train_size in p['splitter']['train_size']:
             for random_state in p['splitter']['random_state']:
-                X_train, X_valid, y_train, y_valid = train_test_split(X, y, train_size=train_size, random_state=random_state)
+                if not p['reducer']:
+                    print('> Reducer: none')
+                    X_reduced = X
+                else:
+                    reducer = p['reducer']
+                    print('> Reducer:', reducer)
+                    reducer_model = reducer.fit(X)
+                    X_reduced = reducer_model.transform(X)
+                    # X_reduced = reducer_model.embedding_
+                    print('- X reduced shape: ', X_reduced.shape)
+                    # plt.scatter(reducer_model.embedding_[:, 0], reducer_model.embedding_[:, 1], s=5, c=y, cmap='Spectral')
+                    # plt.title('Embedding of the training set by reducer', fontsize=24)
+
+                X_train, X_valid, y_train, y_valid = train_test_split(X_reduced, y, train_size=train_size, random_state=random_state)
                 if do_categorize is True:
                     if X_test is None:
                         X_train, X_valid = categorize(X_train, X_valid)
@@ -304,3 +314,5 @@ def print_valid_scores(y_valid, y_pred):
     print('F1 score: ', f1_score(y_valid, y_pred, average='weighted'))
     print()
 
+
+#%%

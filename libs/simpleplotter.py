@@ -1,20 +1,10 @@
 # https://towardsdatascience.com/looking-beyond-feature-importance-37d2807aaaa7
-import time
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 # from graphviz import Source
 from sklearn import metrics
-from sklearn.decomposition import PCA
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import StratifiedKFold
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.tree import export_graphviz
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-from sklearn.metrics import roc_curve, auc
-from distutils.version import LooseVersion as Version
-from scipy import __version__ as scipy_version
-import seaborn as sns
+from sklearn.metrics import confusion_matrix
 
 
 def feature_importance(model, X):

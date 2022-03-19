@@ -10,9 +10,6 @@
 import re
 import sys
 
-from pandas import DataFrame
-from sklearn.metrics import roc_curve, auc
-
 
 # X_train, y_train, X_valid, y_valid, p['modelName'], p['params'], p['hyperParams']
 def get_scoring(X_train, y_train, X_valid, y_valid, modelName, hyperParamNames, hyperParamValues, params=None):
