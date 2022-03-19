@@ -1,0 +1,9 @@
+target_name = 'Survived'
+source_path = "../input/train.csv"
+test_path = "../input/test.csv"
+x_path = "output/X.csv"
+test_x_path = "output/TEST_X.csv"
+predictions_path = "output/predictions.csv"
+model_path = "output/model.joblib"
+y_path = "output/y.csv"
+output_path = "output/"

@@ -1,0 +1,24 @@
+digraph Tree {
+node [shape=box, style="filled", color="black"] ;
+0 [label="alcohol <= 10.35\nsamples = 1279\nvalue = [8, 42, 546, 496, 172, 15]", fillcolor="#f2fdf7"] ;
+1 [label="sulphates <= 0.585\nsamples = 703\nvalue = [5, 23, 428, 222, 24, 1]", fillcolor="#aaf4c9"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+5 [label="samples = 331\nvalue = [3, 15, 242, 69, 2, 0]", fillcolor="#7ceeac"] ;
+1 -> 5 ;
+6 [label="total sulfur dioxide <= 86.5\nsamples = 372\nvalue = [2, 8, 186, 153, 22, 1]", fillcolor="#e1fbec"] ;
+1 -> 6 ;
+7 [label="samples = 316\nvalue = [2, 7, 137, 147, 22, 1]", fillcolor="#f4fafe"] ;
+6 -> 7 ;
+8 [label="samples = 56\nvalue = [0, 1, 49, 6, 0, 0]", fillcolor="#55e993"] ;
+6 -> 8 ;
+2 [label="volatile acidity <= 0.345\nsamples = 576\nvalue = [3, 19, 118, 274, 148, 14]", fillcolor="#c5e2f7"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label="samples = 124\nvalue = [0, 0, 14, 42, 67, 1]", fillcolor="#d9c3f7"] ;
+2 -> 3 ;
+4 [label="sulphates <= 0.585\nsamples = 452\nvalue = [3, 19, 104, 232, 81, 13]", fillcolor="#b6dbf5"] ;
+2 -> 4 ;
+9 [label="samples = 133\nvalue = [3, 14, 52, 57, 7, 0]", fillcolor="#f3f9fd"] ;
+4 -> 9 ;
+10 [label="samples = 319\nvalue = [0, 5, 52, 175, 74, 13]", fillcolor="#add7f4"] ;
+4 -> 10 ;
+}
