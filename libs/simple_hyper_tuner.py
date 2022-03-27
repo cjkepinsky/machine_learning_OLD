@@ -193,7 +193,7 @@ def gridsearchcv_tuner(X, y, params, verbose=1, do_categorize=True, X_test=None)
                 for cv in p['cv']:
                     print('> Model:', get_model_name(p['model']))
 
-                    grid_model = GridSearchCV(p['model'], p['hyperparams'], cv=cv, n_jobs=3, verbose=0)
+                    grid_model = GridSearchCV(p['model'], p['hyperparams'], cv=cv, n_jobs=None, verbose=0)
                     grid_model.fit(X_train, y_train)
 
                     f1 = predict_print_valid_scores(grid_model, X_valid, y_valid, verbose)
