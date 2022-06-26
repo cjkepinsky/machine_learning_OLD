@@ -1,0 +1,12 @@
+Public health early warning system  Private
+The COVID-19 pandemic has reminded us all that our health is the most important thing to us all. For organisations, this includes their employees, their customers and other service users (including citizens for a local authority or patients for a health service). Health deterioration as a result of public health issues isn't just extremely costly economically, but has an immeasurable human cost too.
+
+
+
+The goal of this Hackathon idea will be to protect these people through real-time data analysis and basic risk attribution methods, minimising configuration requirements and providing powerful, straightforward recommendations which businesses can follow. This advice may differ based on the vulnerability of the person involved and the local incidence of the public health issue.
+
+
+
+The output of this Hackathon idea will be a product (within MyWorkplace as a module with APIs to an Advanced health system, or within a health system like CareDirector directly) which builds a basic risk profile of a person based on their demographics, medical conditions, medication etc. (staff, service user or otherwise) and then aggregate the risk faced by a group of people in a location (workplace, care home, hospital ward etc.) or region (local authority area, school catchment area, etc.) from different public health threats based on nationally available data such as the UK government's COVID-19 APIs (https://coronavirus.data.gov.uk/details/developers-guide/main-api).
+
+This idea is a continuation of previous idea HACK-I-31.
