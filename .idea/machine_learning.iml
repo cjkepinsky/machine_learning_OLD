@@ -3,8 +3,19 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/_old/RandomForestClassifier/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/_old/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/_old/.spyproject" />
+      <excludeFolder url="file://$MODULE_DIR$/_old/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/kaggle_iris/iris/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/kaggle_iris/keras/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/kaggle_wine/wine05/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/logic_gates/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/ml_pipelines/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/env" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (env)" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

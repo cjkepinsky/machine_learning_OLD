@@ -30,9 +30,9 @@ def remove_columns(data, columnNames):
     return data.drop(columnNames, axis='columns')
 
 
-def separate_target(data, colName):
-    y = data[colName]
-    X = data.drop([colName], axis=1)
+def separate_target(data, column_name):
+    y = data[column_name]
+    X = data.drop([column_name], axis=1)
     return X, y
 
 
